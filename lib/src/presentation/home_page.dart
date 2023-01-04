@@ -19,12 +19,12 @@ class _HomePageState extends State<HomePage> {
   static const LatLng center = LatLng(45.753467, 21.225594);
   LatLng? dangerPosition;
   List<String> categories = <String>[
-    'groapa carosabil',
-    'cos gunoi rasturnat',
-    'banca distrusa',
-    'fatada in lucru',
-    'semafor stricat',
-    'semn lipsa'
+    'pothole',
+    'overturned trash can',
+    'destroyed bench',
+    'dangerous building',
+    'broken traffic light',
+    'missing sign'
   ];
   Set<Marker> markers = <Marker>{};
 
@@ -63,7 +63,11 @@ class _HomePageState extends State<HomePage> {
 
   void _onResponseMarkers(dynamic action) {
     if (action is InitializeMarkersSuccessful) {
-      getMarkers(StoreProvider.of<AppState>(context).state.dangers.allDangers);
+      getMarkers(StoreProvider
+          .of<AppState>(context)
+          .state
+          .dangers
+          .allDangers);
     }
   }
 
@@ -105,7 +109,10 @@ class _HomePageState extends State<HomePage> {
                       builder: (BuildContext context) {
                         return SafeArea(
                           child: Container(
-                            height: MediaQuery.of(context).size.height - 120,
+                            height: MediaQuery
+                                .of(context)
+                                .size
+                                .height - 120,
                             color: const Color.fromRGBO(30, 24, 73, 1),
                             child: Center(
                               child: Column(
@@ -171,7 +178,9 @@ class _HomePageState extends State<HomePage> {
                                                 height: 100,
                                                 child: ClipOval(
                                                   child: Image.asset(
-                                                    'assets/images/avatar.jpg',
+                                                    'assets/images/${categories[index]
+                                                        .split(' ')
+                                                        .first}.jpg',
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),
@@ -196,7 +205,7 @@ class _HomePageState extends State<HomePage> {
                                   ElevatedButton(
                                     style: ButtonStyle(
                                       backgroundColor:
-                                          MaterialStateProperty.all<Color>(const Color.fromRGBO(195, 51, 127, 0.5)),
+                                      MaterialStateProperty.all<Color>(const Color.fromRGBO(195, 51, 127, 0.5)),
                                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(18),
@@ -366,7 +375,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height - 120,
+                      height: MediaQuery
+                          .of(context)
+                          .size
+                          .height - 120,
                       child: Stack(
                         children: <Widget>[
                           GoogleMap(
