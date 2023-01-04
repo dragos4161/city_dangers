@@ -63,11 +63,7 @@ class _HomePageState extends State<HomePage> {
 
   void _onResponseMarkers(dynamic action) {
     if (action is InitializeMarkersSuccessful) {
-      getMarkers(StoreProvider
-          .of<AppState>(context)
-          .state
-          .dangers
-          .allDangers);
+      getMarkers(StoreProvider.of<AppState>(context).state.dangers.allDangers);
     }
   }
 
@@ -109,10 +105,7 @@ class _HomePageState extends State<HomePage> {
                       builder: (BuildContext context) {
                         return SafeArea(
                           child: Container(
-                            height: MediaQuery
-                                .of(context)
-                                .size
-                                .height - 120,
+                            height: MediaQuery.of(context).size.height - 120,
                             color: const Color.fromRGBO(30, 24, 73, 1),
                             child: Center(
                               child: Column(
@@ -178,9 +171,7 @@ class _HomePageState extends State<HomePage> {
                                                 height: 100,
                                                 child: ClipOval(
                                                   child: Image.asset(
-                                                    'assets/images/${categories[index]
-                                                        .split(' ')
-                                                        .first}.jpg',
+                                                    'assets/images/${categories[index].split(' ').first}.jpg',
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),
@@ -205,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                                   ElevatedButton(
                                     style: ButtonStyle(
                                       backgroundColor:
-                                      MaterialStateProperty.all<Color>(const Color.fromRGBO(195, 51, 127, 0.5)),
+                                          MaterialStateProperty.all<Color>(const Color.fromRGBO(195, 51, 127, 0.5)),
                                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(18),
@@ -375,10 +366,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery
-                          .of(context)
-                          .size
-                          .height - 120,
+                      height: MediaQuery.of(context).size.height - 120,
                       child: Stack(
                         children: <Widget>[
                           GoogleMap(
